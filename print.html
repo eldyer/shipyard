@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Shipyard User's Guide</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="welcome.html">Welcome</a></li><li class="expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="using-this-guide.html"><strong aria-hidden="true">2.</strong> Using this Guide</a></li><li class="expanded "><a href="concepts.html"><strong aria-hidden="true">3.</strong> Concepts</a></li><li><ol class="section"><li class="expanded "><a href="concepts/intro-to-ecs.html"><strong aria-hidden="true">3.1.</strong> Intro to ECS</a></li><li class="expanded "><a href="concepts/storages-views-and-entities.html"><strong aria-hidden="true">3.2.</strong> Storages, Views, and Entities</a></li><li class="expanded "><a href="concepts/running-the-world-with-systems.html"><strong aria-hidden="true">3.3.</strong> Running the World with Systems</a></li><li class="expanded "><a href="concepts/builtin-iterators.html"><strong aria-hidden="true">3.4.</strong> Builtin Iterators</a></li><li class="expanded "><a href="concepts/inner-outer-parallelism.html"><strong aria-hidden="true">3.5.</strong> Parallelism</a></li><li class="expanded "><a href="concepts/packs.html"><strong aria-hidden="true">3.6.</strong> Packs</a></li><li class="expanded "><a href="concepts/unique-storage.html"><strong aria-hidden="true">3.7.</strong> Unique Storage</a></li><li class="expanded "><a href="concepts/custom-iterators.html"><strong aria-hidden="true">3.8.</strong> Custom Iterators</a></li></ol></li><li class="expanded "><a href="how-to.html"><strong aria-hidden="true">4.</strong> How To</a></li><li><ol class="section"><li class="expanded "><a href="how-to/register-components.html"><strong aria-hidden="true">4.1.</strong> Register Components</a></li><li class="expanded "><a href="how-to/add-entities.html"><strong aria-hidden="true">4.2.</strong> Add Entities</a></li><li class="expanded "><a href="how-to/remove-entities.html"><strong aria-hidden="true">4.3.</strong> Remove Entities</a></li><li class="expanded "><a href="how-to/add-components.html"><strong aria-hidden="true">4.4.</strong> Add Components</a></li><li class="expanded "><a href="how-to/remove-components.html"><strong aria-hidden="true">4.5.</strong> Remove Components</a></li><li class="expanded "><a href="how-to/update-components.html"><strong aria-hidden="true">4.6.</strong> Update Components</a></li><li class="expanded "><a href="how-to/using-tag-components.html"><strong aria-hidden="true">4.7.</strong> Using Tag Components</a></li><li class="expanded "><a href="how-to/manage-workloads.html"><strong aria-hidden="true">4.8.</strong> Manage Workloads</a></li><li class="expanded "><a href="how-to/multiple-entities.html"><strong aria-hidden="true">4.9.</strong> Multiple Entities</a></li><li class="expanded "><a href="how-to/all-together-now.html"><strong aria-hidden="true">4.10.</strong> All Together Now</a></li></ol></li><li class="expanded "><a href="under-the-hood.html"><strong aria-hidden="true">5.</strong> Under the Hood</a></li><li><ol class="section"><li class="expanded "><a href="under-the-hood/different-types-of-ecs.html"><strong aria-hidden="true">5.1.</strong> Different types of ECS</a></li><li class="expanded "><a href="under-the-hood/sparse-arrays.html"><strong aria-hidden="true">5.2.</strong> Sparse Arrays</a></li><li class="expanded "><a href="under-the-hood/more-resources.html"><strong aria-hidden="true">5.3.</strong> More Resources</a></li></ol></li><li class="expanded "><a href="examples.html"><strong aria-hidden="true">6.</strong> Examples</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Shipyard User's Guide</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#welcome-to-shipyard" id="welcome-to-shipyard">Welcome to Shipyard!</a></h1>
+<p><a href="https://github.com/leudz/shipyard">Shipyard</a> is an Entity Component System.</p>
+<h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
+<p>Just add it to Cargo.toml :)</p>
+<p>For WASM or single-threaded environments you'll need to turn off default features, and remember to add other features back in, like this:</p>
+<pre><code class="language-toml">shipyard = { features = [&quot;proc&quot;, &quot;serialization&quot;], default-features = false, git = &quot;https://github.com/leudz/shipyard.git&quot; }
+</code></pre>
+<h1><a class="header" href="#using-this-guide" id="using-this-guide">Using this Guide</a></h1>
+<p>In order to avoid needless repitition with demo code, the following is assumed to be predefined in all examples:</p>
+<h3><a class="header" href="#components" id="components">Components</a></h3>
+<pre><code class="language-rust noplaypen">pub struct Empty {}
+
+#[derive(Debug)]
+pub struct Count (pub u32);
+
+#[derive(Debug)]
+pub struct Position {x: f64, y: f64}
+
+#[derive(Debug)]
+pub struct Velocity {x: f64, y: f64}
+
+#[derive(Debug)]
+pub struct Fruit {
+    name: &amp;'static str,
+    color: Color, 
+}
+
+impl Fruit {
+    pub fn new_apple(color: Option&lt;Color&gt;) -&gt; Self {
+        Self { name: &quot;apple&quot;, color: color.unwrap_or(Color::Red) }
+    }
+    pub fn new_orange() -&gt; Self {
+        Self { name: &quot;orange&quot;, color: Color::Orange}
+    }
+}
+
+#[derive(Debug)]
+pub enum Color {
+    Red,
+    Orange,
+    Green
+}
+</code></pre>
+<h1><a class="header" href="#concepts" id="concepts">Concepts</a></h1>
+<h1><a class="header" href="#intro-to-ecs" id="intro-to-ecs">Intro to ECS</a></h1>
+<p>ECS stands for Entity Component System. It's a great way to organize logic and data with an emphasis on usability and speed.</p>
+<p>There are two main benefits to using an ECS:</p>
+<ol>
+<li>Elegant approach for humans
+<ul>
+<li>Composition over inheritance</li>
+<li>Separation of concerns</li>
+<li>Array of Structures</li>
+</ul>
+</li>
+<li>Optimal design for computers.
+<ul>
+<li>Structure of Arrays</li>
+<li>Spatial locality</li>
+<li>Less pointer chasing</li>
+</ul>
+</li>
+</ol>
+<p>However, programming with an ECS requires thinking about data and logic in a different way than you might be used to. Also, the optimization techniques need explicit choice and tuning to get the greatest benefit (see <a href="concepts/./optimization-with-packs.html">Optimization with Packs</a>)</p>
+<h1><a class="header" href="#how-does-it-work" id="how-does-it-work">How does it work?</a></h1>
+<p>Entities are just newtype wrappers around a <code>u64</code>. Under the hood they are really nothing other than an index.</p>
+<p>Components hold data. Only data. No logic. They <em>can</em> of course contain methods but the ECS only sees the hard data.</p>
+<p>Systems do the heavy lifting: updating components, running side-effects, and integrating with other parts of the code.</p>
+<p>(For more details including how Shipyard differs from other ECS implementations, see <a href="concepts/../under-the-hood.html">Under the Hood</a>)</p>
+<h1><a class="header" href="#storages-views-and-entities" id="storages-views-and-entities">Storages, Views, and Entities</a></h1>
+<p>Storages contain components</p>
+<p>Views allow access to storages</p>
+<p>Entities is a special container for entities</p>
+<p>Or, something like that :P</p>
+<h1><a class="header" href="#running-the-world-with-systems" id="running-the-world-with-systems">Running the World with Systems</a></h1>
+<p>There are two ways to operate on the world.</p>
+<h2><a class="header" href="#systems" id="systems">Systems</a></h2>
+<p>Systems are created by implementing the <code>System</code> trait. It's a bit involved- but don't worry, there's a helper macro we'll get to down below that makes this much simpler!</p>
+<p>First, implementing the trait directly. It looks like:</p>
+<ol>
+<li>Define a system</li>
+</ol>
+<pre><code class="language-rust noplaypen">struct CreateEmpty;
+impl&lt;'a&gt; System&lt;'a&gt; for CreateEmpty {
+    type Data = (EntitiesMut, &amp;'a mut Empty);
+    
+    fn run((entities, empties): &lt;T::Data as SystemData&gt;::View) { ... }
+}
+</code></pre>
+<p>First we create a struct, it could be an enum, empty or not it doesn't really matter it's just here to attach the impl on. Note that even if you don't make it empty you won't have access to the struct inside the system.</p>
+<p>We then choose which storages we want with the <code>Data</code> associated type. We'll see in the next chapters what types can be used in detailed.</p>
+<p>Finally, we get a tuple as <code>run</code> argument containing views to the storages we asked with <code>Data</code>. You can use <code>&lt;T::Data as SystemData&gt;::View</code> as type, it's a bit esoteric but will work with whatever you borrow. Or you could specify the exact types.</p>
+<ol start="2">
+<li>Add the workload</li>
+</ol>
+<pre><code class="language-rust noplaypen">world.add_workload(&quot;Creators&quot;, CreateEmpty);
+</code></pre>
+<ol start="3">
+<li>Run the workload (which will run its systems)</li>
+</ol>
+<pre><code class="language-rust noplaypen">world.run_workload(&quot;Creators&quot;);
+</code></pre>
+<p>Adding multiple systems to a workload is only a matter of expanding the second argument to a tuple. For example: </p>
+<ol>
+<li>Define another system - this time using the macro</li>
+</ol>
+<pre><code class="language-rust noplaypen">#[system(CreateCount)]
+fn run (entities: &amp;mut Entities, counts: &amp;mut Count) { ... }
+</code></pre>
+<p>It will also take care of transforming its arguments into tuple(s), no need to worry about it anymore.</p>
+<ol start="2">
+<li>Add the workload</li>
+</ol>
+<pre><code class="language-rust noplaypen">world.add_workload(&quot;Creators&quot;, (CreateEmpty, CreateCount));
+</code></pre>
+<ol start="3">
+<li>Run the workload</li>
+</ol>
+<pre><code class="language-rust noplaypen">world.run_workload(&quot;Creators&quot;);
+</code></pre>
+<p>This is great because it avoids a ton of boilerplate and provides <a href="concepts/../concepts/inner-outer-parallelism.html">outer-parallelism</a> without having to do anything.</p>
+<p>There's a few points to keep in mind about workloads:</p>
+<ol>
+<li>Workloads will run its systems in parallel where possible. If they can't be run in parallel, then systems run sequentially left-to-right.</li>
+<li>A workload cannot be modified once its defined. Think of it more as a one-time-setup thing than something you do dynamically at runtime. Workloads are cheap so even if you make a few with similar systems it's ok.</li>
+<li>Adding a workload with a name that already exists will replace it.</li>
+</ol>
+<h2><a class="header" href="#running-directly" id="running-directly">Running directly</a></h2>
+<p>Sometimes a world needs to be run where it has access to variables that are not registered in the ECS.</p>
+<p>For this use case, <code>run</code> may be called:</p>
+<pre><code class="language-rust noplaypen">world.run::&lt;(EntitiesMut, &amp;mut Empty), _, _&gt;(|(entities, empties)| { ... });
+</code></pre>
+<p>We use turbofish to specify what storages we want to borrow just like in systems. We then have two underscores, that's because the methods takes two additional generics but the compiler will almost always know which types you are referring to.</p>
+<p>The first underscore correspond to the type returned by <code>run</code> for example:</p>
+<pre><code class="language-rust noplaypen">let entity = world.run::&lt;(EntitiesMut, &amp;mut Empty), _, _&gt;(|(entities, empties)| { ... });
+</code></pre>
+<p>The last underscore is the complete type of the closure.</p>
+<h1><a class="header" href="#builtin-iterators" id="builtin-iterators">Builtin Iterators</a></h1>
+<p>Let's say we have a dozen or so components that we need to iterate over, but in separate groupings.</p>
+<p>For example, let's say we want to do the following steps:</p>
+<ol>
+<li>iterate over all the Positions and Velocities. Given the current Position and Velocity, update Position.</li>
+<li>iterate over all the Positions and Meshes in order to render them.</li>
+</ol>
+<p>Note that in the first step, there is no need for Mesh and in the second step there is no need for Velocity. Yet Position is needed in both.</p>
+<p>Shipyard uses Rust's trait system to create Iterators for any components that are registered in the World.</p>
+<p>Once a system is registered and the storages are passed in (see <a href="concepts/./storages-views-and-entities.html">Storages, Views, and Entities</a>), it's as simple as:</p>
+<pre><code class="language-rust noplaypen">(&amp;mut positions, &amp;velocities).iter().for_each(|(position, velocity)| {
+    //...
+});
+(&amp;positions, &amp;velocities).iter().for_each(|(position, velocity)| {
+    //...
+});
+</code></pre>
+<h1><a class="header" href="#inner-and-outer-parallelism" id="inner-and-outer-parallelism">Inner and Outer Parallelism</a></h1>
+<h1><a class="header" href="#packs" id="packs">Packs</a></h1>
+<p>Packs reorder components inside a storage to provide additional functionality and/or performance.</p>
+<p>They come with advantages and disadvantages of course, this is why there are multiple kind.</p>
+<p><em>Loose Packs vs. Tight Packs...</em></p>
+<h1><a class="header" href="#unique-storage" id="unique-storage">Unique Storage</a></h1>
+<p>When it's known that there will only ever be exactly one instance of some component, it doesn't need to be attached to an entity.</p>
+<p>It also work well as global data while still been sound.</p>
+<p>Use cases: Window Size, Audio Device, even Camera</p>
+<h1><a class="header" href="#how-to" id="how-to">How To</a></h1>
+<p>Now that we've got a basic idea of what Shipyard is and how it works, let's learn how to use it!</p>
+<p>The examples below will all use the following assumptions:</p>
+<ol>
+<li>world.run instead of system annotation (or reverse?)</li>
+<li>the following components are already registered in the world: (?)</li>
+</ol>
+<h1><a class="header" href="#register-components" id="register-components">Register Components</a></h1>
+<p>Components must be registered before they can be used anywhere</p>
+<h3><a class="header" href="#register-at-world-creation" id="register-at-world-creation">Register at world creation</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#register-later" id="register-later">Register later</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#register-unique-components" id="register-unique-components">Register Unique components</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h1><a class="header" href="#add-entities" id="add-entities">Add Entities</a></h1>
+<h3><a class="header" href="#add-a-single-entity" id="add-a-single-entity">Add a single entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#add-an-entity-with-no-components-is-this-possible" id="add-an-entity-with-no-components-is-this-possible">Add an entity with no components (is this possible?)</a></h3>
+<p><code>code examples and explanation here</code></p>
+<hr />
+<p>For working with multiple entities, see <a href="how-to/./multiple-entities.html">Multiple Entities</a></p>
+<h1><a class="header" href="#remove-entities" id="remove-entities">Remove Entities</a></h1>
+<p>Removing an entity means removing it both from the Entities container as well as removing all its components. </p>
+<h3><a class="header" href="#remove-a-single-entity" id="remove-a-single-entity">Remove a single Entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<hr />
+<p>For working with multiple entities, see <a href="how-to/./multiple-entities.html">Multiple Entities</a></p>
+<h1><a class="header" href="#add-components" id="add-components">Add Components</a></h1>
+<p>An Entity can only contain one instance of a particular component type.</p>
+<p>However there's no need to check for this - adding a component to an entity will simply replace the component if it already exists.</p>
+<h3><a class="header" href="#add-a-single-component-to-an-entity" id="add-a-single-component-to-an-entity">Add a single component to an entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#add-a-bunch-of-components-to-an-entity" id="add-a-bunch-of-components-to-an-entity">Add a bunch of components to an entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<hr />
+<p>For working with multiple entities, see <a href="how-to/./multiple-entities.html">Multiple Entities</a></p>
+<h1><a class="header" href="#remove-components" id="remove-components">Remove Components</a></h1>
+<h3><a class="header" href="#remove-a-single-component-from-an-entity" id="remove-a-single-component-from-an-entity">Remove a single component from an entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#remove-a-bunch-of-components-an-entity" id="remove-a-bunch-of-components-an-entity">Remove a bunch of components an entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#remove-all-components-from-an-entity-if-theres-a-shorthand-for-that" id="remove-all-components-from-an-entity-if-theres-a-shorthand-for-that">Remove all components from an entity (if there's a shorthand for that)</a></h3>
+<p>Note: this is different than deleting an entity and will cause the entity to still lurk around in memory</p>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#remove-a-component-storage-from-the-entire-program" id="remove-a-component-storage-from-the-entire-program">Remove a component storage from the entire program</a></h3>
+<p><code>code examples and explanation here</code></p>
+<hr />
+<p>For working with multiple entities, see <a href="how-to/./multiple-entities.html">Multiple Entities</a></p>
+<h1><a class="header" href="#update-components" id="update-components">Update Components</a></h1>
+<h3><a class="header" href="#update-a-single-component-in-an-entity" id="update-a-single-component-in-an-entity">Update a single component in an entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#update-a-bunch-of-components-in-an-entity" id="update-a-bunch-of-components-in-an-entity">Update a bunch of components in an entity</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#update-a-unique-component" id="update-a-unique-component">Update a unique component</a></h3>
+<p><code>code examples and explanation here</code></p>
+<hr />
+<p>For working with multiple entities, see <a href="how-to/./multiple-entities.html">Multiple Entities</a></p>
+<h1><a class="header" href="#using-tag-components" id="using-tag-components">Using Tag Components</a></h1>
+<p>Tag components are components without data. They can be useful for things like setting a dirty flag or &quot;tagging&quot; which components are conceptually grouped together by some criteria (whether they are actually packed or not)</p>
+<h1><a class="header" href="#manage-workloads" id="manage-workloads">Manage Workloads</a></h1>
+<h3><a class="header" href="#add-a-workload-with-a-bunch-of-systems" id="add-a-workload-with-a-bunch-of-systems">Add a workload with a bunch of systems</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#remove-a-workload" id="remove-a-workload">Remove a workload</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#change-which-systems-are-in-a-workload" id="change-which-systems-are-in-a-workload">Change which systems are in a workload</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#working-with-multiple-entities" id="working-with-multiple-entities">Working with multiple entities</a></h3>
+<p>To add, remove, or update components on multiple entities - first collect all the keys, then as a separate step do what's needed</p>
+<h1><a class="header" href="#all-together-now" id="all-together-now">All Together Now</a></h1>
+<p>Some examples that show real-world problems and solutions</p>
+<h3><a class="header" href="#update-a-component-for-a-bunch-of-entities-stash-entities-that-need-to-be-removed-and-remove-them" id="update-a-component-for-a-bunch-of-entities-stash-entities-that-need-to-be-removed-and-remove-them">Update a component for a bunch of entities, stash entities that need to be removed, and remove them</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h3><a class="header" href="#update-a-component-for-a-bunch-of-entities-stash-entities-that-need-to-have-components-added-and-add-them" id="update-a-component-for-a-bunch-of-entities-stash-entities-that-need-to-have-components-added-and-add-them">Update a component for a bunch of entities, stash entities that need to have components added, and add them</a></h3>
+<p><code>code examples and explanation here</code></p>
+<h1><a class="header" href="#under-the-hood" id="under-the-hood">Under the Hood</a></h1>
+<h1><a class="header" href="#different-types-of-ecs" id="different-types-of-ecs">Different types of ECS</a></h1>
+<p>Archetype, Sparse Array, whatever Specs is...</p>
+<h1><a class="header" href="#sparse-arrays" id="sparse-arrays">Sparse Arrays</a></h1>
+<h1><a class="header" href="#more-resources" id="more-resources">More Resources</a></h1>
+<p>Links to articles, books, videos, etc.</p>
+<h1><a class="header" href="#examples" id="examples">Examples</a></h1>
+<p>Out in the wild...</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
